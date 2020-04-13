@@ -1,0 +1,8 @@
+# github.com/iovisor/gobpf v0.0.0-20200329161226-8b2cce9dac28
+## explicit
+github.com/iovisor/gobpf/elf
+github.com/iovisor/gobpf/pkg/bpffs
+github.com/iovisor/gobpf/pkg/cpuonline
+# github.com/weaveworks/tcptracer-bpf v0.0.0-20190731111909-cd53e7c84bac
+## explicit
+github.com/weaveworks/tcptracer-bpf/pkg/tracer

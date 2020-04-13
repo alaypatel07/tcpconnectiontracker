@@ -1,0 +1,4 @@
+github.com/iovisor/gobpf v0.0.0-20200329161226-8b2cce9dac28 h1:F0giuvbNfBmSfOaRZDDRJNaJ2VbAlufYShQvNQSC5Jw=
+github.com/iovisor/gobpf v0.0.0-20200329161226-8b2cce9dac28/go.mod h1:+5U5qu5UOu8YJ5oHVLvWKH7/Dr5QNHU7mZ2RfPEeXg8=
+github.com/weaveworks/tcptracer-bpf v0.0.0-20190731111909-cd53e7c84bac h1:bE6+keem2eUQT2HcRwocyA9HtQs9o2ZU6mwEvA5AVeo=
+github.com/weaveworks/tcptracer-bpf v0.0.0-20190731111909-cd53e7c84bac/go.mod h1:vIed/thLU28ufcvDlpI1X5u+pPoI30rpjIbvvDWKjMk=
