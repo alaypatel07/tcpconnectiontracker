@@ -1,0 +1,7 @@
+apiVersion: tcp.network-connections.io.tcp.network-connections.io/v1alpha1
+kind: Track
+metadata:
+  name: track-sample
+spec:
+  # Add fields here
+  foo: bar
