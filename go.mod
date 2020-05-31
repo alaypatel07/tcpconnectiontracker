@@ -1,8 +1,13 @@
 module github.com/alaypatel07/tcpconnectiontracker
 
-go 1.14
+go 1.13
 
 require (
-	github.com/iovisor/gobpf v0.0.0-20200329161226-8b2cce9dac28 // indirect
-	github.com/weaveworks/tcptracer-bpf v0.0.0-20190731111909-cd53e7c84bac
+	github.com/go-logr/logr v0.1.0
+	github.com/onsi/ginkgo v1.11.0
+	github.com/onsi/gomega v1.8.1
+	k8s.io/api v0.17.2
+	k8s.io/apimachinery v0.17.2
+	k8s.io/client-go v0.17.2
+	sigs.k8s.io/controller-runtime v0.5.0
 )

@@ -1,0 +1,7 @@
+domain: tcp.network-connections.io
+repo: github.com/alaypatel07/tcpconnectiontracker
+resources:
+- group: tcp.network-connections.io
+  kind: Track
+  version: v1alpha1
+version: "2"
