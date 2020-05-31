@@ -18,9 +18,13 @@ package controllers
 
 import (
 	"context"
+	"fmt"
+	"strings"
 
 	"github.com/go-logr/logr"
+	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
+	generictypes "k8s.io/apimachinery/pkg/types"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
@@ -38,10 +42,38 @@ type TrackReconciler struct {
 // +kubebuilder:rbac:groups=tcp.network-connections.io.tcp.network-connections.io,resources=tracks/status,verbs=get;update;patch
 
 func (r *TrackReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
-	_ = r.Log.WithValues("track", req.NamespacedName)
+	ctx := context.Background()
+	log := r.Log.WithValues("track", req.NamespacedName)
 
 	// your logic here
+	trackObj := &tcpnetworkconnectionsiov1alpha1.Track{}
+
+	err := r.Get(ctx, req.NamespacedName, trackObj)
+	if err != nil {
+		log.Error(err, "error getting track object")
+		return ctrl.Result{}, err
+	}
+
+	pod := strings.Split(trackObj.Spec.PodNamespacedName, "/")
+	podNamespace, podName := "", ""
+	switch {
+	case len(pod) == 1:
+		podName = pod[0]
+		podNamespace = req.Namespace
+	case len(pod) == 2:
+		podNamespace = pod[0]
+		podName = pod[1]
+	}
+
+	var p *corev1.Pod
+
+	err = r.Get(ctx, generictypes.NamespacedName{Namespace: podNamespace, Name: podName}, p)
+	if err != nil {
+		log.Error(err, "error getting pod", "podNameSpace", podNamespace, "podName", podName)
+		return ctrl.Result{}, err
+	}
+
+	fmt.Printf("tracking pod %s/%s on node %s", podNamespace, pod, p.Spec.NodeName)
 
 	return ctrl.Result{}, nil
 }
