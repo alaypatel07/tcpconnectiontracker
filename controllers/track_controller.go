@@ -38,8 +38,8 @@ type TrackReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=tcp.network-connections.io.tcp.network-connections.io,resources=tracks,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=tcp.network-connections.io.tcp.network-connections.io,resources=tracks/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=tcp.network-connections.io,resources=tracks,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=tcp.network-connections.io,resources=tracks/status,verbs=get;update;patch
 
 func (r *TrackReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	ctx := context.Background()
@@ -65,7 +65,7 @@ func (r *TrackReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		podName = pod[1]
 	}
 
-	var p *corev1.Pod
+	p := &corev1.Pod{}
 
 	err = r.Get(ctx, generictypes.NamespacedName{Namespace: podNamespace, Name: podName}, p)
 	if err != nil {

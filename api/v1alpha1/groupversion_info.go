@@ -16,7 +16,7 @@ limitations under the License.
 
 // Package v1alpha1 contains API Schema definitions for the tcp.network-connections.io v1alpha1 API group
 // +kubebuilder:object:generate=true
-// +groupName=tcp.network-connections.io.tcp.network-connections.io
+// +groupName=tcp.network-connections.io
 package v1alpha1
 
 import (

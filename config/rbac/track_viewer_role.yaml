@@ -5,7 +5,7 @@ metadata:
   name: track-viewer-role
 rules:
 - apiGroups:
-  - tcp.network-connections.io.tcp.network-connections.io
+  - tcp.network-connections.io
   resources:
   - tracks
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - tcp.network-connections.io.tcp.network-connections.io
+  - tcp.network-connections.io
   resources:
   - tracks/status
   verbs:

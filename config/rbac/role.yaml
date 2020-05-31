@@ -1,8 +1,10 @@
-# permissions for end users to edit tracks.
+
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: track-editor-role
+  creationTimestamp: null
+  name: manager-role
 rules:
 - apiGroups:
   - tcp.network-connections.io
@@ -22,3 +24,5 @@ rules:
   - tracks/status
   verbs:
   - get
+  - patch
+  - update
