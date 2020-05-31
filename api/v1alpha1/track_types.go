@@ -28,8 +28,12 @@ type TrackSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Track. Edit Track_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// PodNamespacedName is the target pod for tracking network connections
+	// 1. The input will be in the form of <pod-namespace>/<pod-name>. If "/"
+	//    is not found, the namespace of the controller will be used.
+	// for pods in different namespace, the controller will RBAC permissions
+	// to create, watch, get, list pods in that namespace.
+	PodNamespacedName string `json:"podNamespacedName,omitempty"`
 }
 
 // TrackStatus defines the observed state of Track
